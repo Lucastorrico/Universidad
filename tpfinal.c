@@ -1,7 +1,8 @@
 // librerias
 #include <stdio.h>
 #include <string.h>
-int nu_par(){//primera opcion un programa de sentencia simples, en este caso ver si un numero es par o impar
+//funcion para la sentencia simple
+int nu_par(){
              int n_par;
              printf("ingrese un numero para ver si es par o impar \n");
              scanf("%d", &n_par);
@@ -13,6 +14,7 @@ int nu_par(){//primera opcion un programa de sentencia simples, en este caso ver
                 printf("es impar \n");
              } //falta comprobar si es un numero o no
 }
+//funcion para la cadena de caracteres
 char palabras_iguales(){// tercera opcion un programa que contenga cadenas de caracteres,en este caso ver si las palabras son iguales
             char p1[10],p2[10];
 
