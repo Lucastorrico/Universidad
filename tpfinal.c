@@ -47,7 +47,7 @@ void main()
         printf("ingrese 4.Funciones \n");
         printf("ingrese 5.Salir \n"); // opciones del menu
         scanf("%d", &opcion); //selector de opcion
-        if(opcion > 5 || opcion < 0){
+        if(opcion > 5 || opcion < 0){ //comprobar si es un numero entre el 1 al 5
             printf("ingrese numeros del 1 al 5 \n");
         }
         switch(opcion){
@@ -74,3 +74,4 @@ void main()
     }while(opcion!=5);
     printf("salio del programa");
 }
+
