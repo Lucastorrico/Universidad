@@ -63,7 +63,7 @@ int main() {
                 nu_par();
                 break;
             case 2:
-                printf("Aqui irian las sentencias repetitivas\n");
+                
                 break;
             case 3:
                 palabras_iguales();
@@ -97,9 +97,9 @@ int leerEnteroValido(const char *mensaje, int min, int max) {
             continue;
         }
 
-        entrada[strcspn(entrada, "\n")] = '\0'; // quitar salto de línea
+        entrada[strcspn(entrada, "\n")] = '\0'; // quitar salto de lÃ­nea
 
-        // validar que solo haya dígitos o signo negativo
+        // validar que solo haya dÃ­gitos o signo negativo
         int i = 0;
         if (entrada[0] == '-') i = 1; // permitir negativos si hace falta
         for (; i < strlen(entrada); i++) {
@@ -123,3 +123,4 @@ int leerEnteroValido(const char *mensaje, int min, int max) {
 
     return numero;
 }
+
