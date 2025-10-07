@@ -3,9 +3,11 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+// prototipo de validacion
+int leerEnteroValido(const char *mensaje, int min, int max);
 // funcion para la sentencia simple
 int nu_par() {
-    int n_par = leerEnteroValido("Ingrese un numero para ver si es par o impar: ", -32768, 32767);
+    int n_par = leerEnteroValido("Ingrese un numero entero para ver si es par o impar: ", -32768, 32767);
 
     if (n_par % 2 == 0) {
         printf("Es par\n");
@@ -41,8 +43,7 @@ int hoy() {
     printf("2\n");
     return 0;
 }
-// prototipo de validacion
-int leerEnteroValido(const char *mensaje, int min, int max);
+
 // funcion main
 
 int main() {
@@ -63,7 +64,7 @@ int main() {
                 nu_par();
                 break;
             case 2:
-                
+                printf("sentancias reptitivas \n");
                 break;
             case 3:
                 palabras_iguales();
@@ -94,14 +95,14 @@ int leerEnteroValido(const char *mensaje, int min, int max) {
         if (fgets(entrada, sizeof(entrada), stdin) == NULL) {
             printf("Error al leer entrada.\n");
             valido = 0;
-            continue;
+
         }
 
-        entrada[strcspn(entrada, "\n")] = '\0'; // quitar salto de línea
+        entrada[strcspn(entrada, "\n")] = '\0'; // quitar salto de linea
 
-        // validar que solo haya dígitos o signo negativo
+        // validar que solo haya digitos o signo negativo
         int i = 0;
-        if (entrada[0] == '-') i = 1; // permitir negativos si hace falta
+        if (entrada[0] == '-') i = 1; //busca negativos
         for (; i < strlen(entrada); i++) {
             if (!isdigit((unsigned char)entrada[i])) {
                 valido = 0;
@@ -110,7 +111,7 @@ int leerEnteroValido(const char *mensaje, int min, int max) {
         }
 
         if (valido) {
-            numero = atoi(entrada);
+            numero = atoi(entrada); // cambia entrada por un int
             if (numero < min || numero > max) {
                 printf("Error: debe estar entre %d y %d.\n", min, max);
                 valido = 0;
@@ -123,4 +124,3 @@ int leerEnteroValido(const char *mensaje, int min, int max) {
 
     return numero;
 }
-
