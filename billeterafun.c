@@ -1,5 +1,5 @@
 #include <stdio.h>
-void billetera(float a, float c){
+void vuelto(float a, float c){
   float v = a-c;
   printf("el vuelto es de: %f", v);
 }
@@ -10,6 +10,7 @@ printf("ingrese el importe:");
 scanf("%f", &t);
 printf("ingrese el billete:");
 scanf("%f", &b);
-billetera(b,t);
+vuelto(b,t);
 
 }
+
