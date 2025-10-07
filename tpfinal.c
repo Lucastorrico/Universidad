@@ -92,19 +92,19 @@ int leerEnteroValido(const char *mensaje, int min, int max) {
         valido = 1;
         printf("%s", mensaje);
 
-        if (fgets(entrada, sizeof(entrada), stdin) == NULL) {
+        if (fgets(entrada, sizeof(entrada), stdin) == NULL) {// lee toda la línea hasta el enter (o hasta llenar el buffer) y la guarda en entrada 
             printf("Error al leer entrada.\n");
             valido = 0;
 
         }
 
-        entrada[strcspn(entrada, "\n")] = '\0'; // quitar salto de linea
+        entrada[strcspn(entrada, "\n")] = '\0'; // busca la posición del \n (el enter) y devolve su índice.
 
         // validar que solo haya digitos o signo negativo
         int i = 0;
         if (entrada[0] == '-') i = 1; //busca negativos
         for (; i < strlen(entrada); i++) {
-            if (!isdigit((unsigned char)entrada[i])) {
+            if (!isdigit((unsigned char)entrada[i])) {// busca que no existan caracteres en la entrada
                 valido = 0;
                 break;
             }
@@ -112,7 +112,7 @@ int leerEnteroValido(const char *mensaje, int min, int max) {
 
         if (valido) {
             numero = atoi(entrada); // cambia entrada por un int
-            if (numero < min || numero > max) {
+            if (numero < min || numero > max) { // verifica que este entre 1 y 5
                 printf("Error: debe estar entre %d y %d.\n", min, max);
                 valido = 0;
             }
@@ -124,3 +124,4 @@ int leerEnteroValido(const char *mensaje, int min, int max) {
 
     return numero;
 }
+
