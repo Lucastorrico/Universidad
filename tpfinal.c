@@ -34,7 +34,41 @@ char palabras_iguales() {
         printf("\nSon cadenas de distinto contenido!!\n%s\n%s\n", p1, p2);
     }
     return 0;
-}// funciones para la opcion 4
+}
+// funciones para la opcion 2
+void sentencias_rep(){
+   int num = leerEnteroValido("ingrese un numero: ", -32758, 32758);
+   int opcion2;
+
+   do{
+    printf("ingrese 1 si quiere la tabla hasta el diez del numero (trabraja con for) \n");
+    printf("ingrese 2 si quiere el factorial del numero (trabaja con while) \n");
+    printf("ingrese 3 si quiere el trabajo con do while \n");
+    printf("ingrese 4 si quiere volver al menu principal \n");
+    opcion2= leerEnteroValido("ingrese una opcion: ", 1, 4);
+    switch(opcion2){
+            case 1:
+                int i;
+                for(i=0; i<=10; i++){
+                    int r;
+                    r=i*num;
+                    printf("%d \n", r);
+                } break;
+            case 2:
+                 break;
+            case 3:
+                 printf("es el menu \n");
+
+
+
+
+
+    }
+   }while(opcion2!=4);
+
+}
+
+// funciones para la opcion 4
 void dia() {
     printf("Buen dia\n");
 }
@@ -64,7 +98,7 @@ int main() {
                 nu_par();
                 break;
             case 2:
-                printf("sentancias reptitivas \n");
+                sentencias_rep();
                 break;
             case 3:
                 palabras_iguales();
@@ -92,19 +126,19 @@ int leerEnteroValido(const char *mensaje, int min, int max) {
         valido = 1;
         printf("%s", mensaje);
 
-        if (fgets(entrada, sizeof(entrada), stdin) == NULL) {// lee toda la línea hasta el enter (o hasta llenar el buffer) y la guarda en entrada 
+        if (fgets(entrada, sizeof(entrada), stdin) == NULL) {
             printf("Error al leer entrada.\n");
             valido = 0;
 
         }
 
-        entrada[strcspn(entrada, "\n")] = '\0'; // busca la posición del \n (el enter) y devolve su índice.
+        entrada[strcspn(entrada, "\n")] = '\0'; // quitar salto de linea
 
         // validar que solo haya digitos o signo negativo
         int i = 0;
         if (entrada[0] == '-') i = 1; //busca negativos
         for (; i < strlen(entrada); i++) {
-            if (!isdigit((unsigned char)entrada[i])) {// busca que no existan caracteres en la entrada
+            if (!isdigit((unsigned char)entrada[i])) {
                 valido = 0;
                 break;
             }
@@ -112,7 +146,7 @@ int leerEnteroValido(const char *mensaje, int min, int max) {
 
         if (valido) {
             numero = atoi(entrada); // cambia entrada por un int
-            if (numero < min || numero > max) { // verifica que este entre 1 y 5
+            if (numero < min || numero > max) {
                 printf("Error: debe estar entre %d y %d.\n", min, max);
                 valido = 0;
             }
@@ -124,4 +158,3 @@ int leerEnteroValido(const char *mensaje, int min, int max) {
 
     return numero;
 }
-
