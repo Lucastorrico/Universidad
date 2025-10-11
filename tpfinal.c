@@ -46,6 +46,7 @@ void sentencias_rep(){
     printf("ingrese 3 si quiere el trabajo con do while \n");
     printf("ingrese 4 si quiere volver al menu principal \n");
     opcion2= leerEnteroValido("ingrese una opcion: ", 1, 4);
+
     switch(opcion2){
             case 1:
                 int i;
@@ -53,17 +54,28 @@ void sentencias_rep(){
                     int r;
                     r=i*num;
                     printf("%d \n", r);
-                } break;
+
+                } opcion2=4; break;
             case 2:
-                 break;
+                int factorial = 1;
+                while(num>1){
+
+                    factorial *= num;
+                    num--;
+
+                }
+                printf("El factorial es: %d\n", factorial);
+                opcion2=4;
+                break;
             case 3:
                  printf("es el menu \n");
-
+                 opcion2=4;
 
 
 
 
     }
+
    }while(opcion2!=4);
 
 }
@@ -92,7 +104,7 @@ int main() {
         printf("5. Salir\n");
 
         opcion = leerEnteroValido("Ingrese una opcion: ", 1, 5);
-
+        system("cls"); //borrar la consola
         switch(opcion) {
             case 1:
                 nu_par();
@@ -126,8 +138,8 @@ int leerEnteroValido(const char *mensaje, int min, int max) {
         valido = 1;
         printf("%s", mensaje);
 
-        if (fgets(entrada, sizeof(entrada), stdin) == NULL) { //lee toda la línea hasta el ENTER (o hasta llenar el buffer) y la guarda en entrada
-            printf("Error al leer entrada.\n");               // strcspn(entrada, "\n") busca la posición del \n y devolve su índice.
+        if (fgets(entrada, sizeof(entrada), stdin) == NULL) { //lee toda la linea hasta el ENTER (o hasta llenar el buffer) y la guarda en entrada
+            printf("Error al leer entrada.\n");               // strcspn(entrada, "\n") busca la posicion del \n y devolve su indice.
             valido = 0;
 
         }
