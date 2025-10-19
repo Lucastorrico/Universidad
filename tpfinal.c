@@ -81,19 +81,25 @@ void sentencias_rep(){
 }
 
 // funciones para la opcion 4
-void dia() {
-    printf("Buen dia\n");
+void saludos(){
+printf("esta funcion es para crear un ticket \n");
 }
-
-int hoy() {
-    printf("2\n");
-    return 0;
+void total(int n){
+    printf("el total es : %d \n", n);
 }
+int vuelto(int v, int t){
+    int r= v-t;
+  printf("el vuelto es de: %d \n", r);
+}
+char fecha(){
+    printf("hoy es 19/10. \n");
 
+}
 // funcion main
 
 int main() {
-    int opcion;
+    int opcion,tol,v;
+
 
     do {
         printf("\n=== MENU ===\n");
@@ -116,8 +122,14 @@ int main() {
                 palabras_iguales();
                 break;
             case 4:
-                dia();
-                hoy();
+                saludos();
+                tol= leerEnteroValido("ingrese el total a pagar: ", 1, 1000);
+                v= leerEnteroValido("ingrese cuanto pago el cliente: ", 1, 1000);
+
+
+                total(tol);
+                vuelto(v,tol);
+                fecha();
                 break;
             case 5:
                 printf("Salio del programa.\n");
